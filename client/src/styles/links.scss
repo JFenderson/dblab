@@ -1,0 +1,24 @@
+.scheme{
+    color: #C5C6C7,#1F2833,#66FCF1,#45A29E,#0B0C10
+}
+
+.link {
+    color: #66FCF1;
+    font-size: 2em;
+    cursor: pointer;
+    text-align: center;
+    margin: 20px;
+    text-decoration: none;
+    
+}
+
+.link:hover{
+    color: #C5C6C7;
+    text-decoration: none;
+}
+
+.container {
+    background-color: #1F2833;
+    display: flex;
+    justify-content: center;
+}
