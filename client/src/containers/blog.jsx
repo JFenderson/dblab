@@ -10,10 +10,15 @@ class Blog extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            blog: {}
+            blog: {},
+            isEditing: false
         }
-        this.deleteBlog = this.deleteBlog.bind(this);
+        this.toggleEdit = this.toggleEdit.bind(this);
     }
+
+    toggleEdit() {
+        this.setState({isEditing: !this.state.isEditing})
+      }
     
     componentDidMount() {
         blogService.one(`${this.props.match.params.id}`)
@@ -24,7 +29,7 @@ class Blog extends Component {
         console.log('caught it!',err);
         })
         // fetch(`http://localhost:3000/api/blogs/${this.props.match.params.id}`)
-        // .then((response)=> response.json())
+        // .then((response)=> response.json()) 
         // .then(obj => {
         //     this.setState({
         //         blog: obj
@@ -33,21 +38,21 @@ class Blog extends Component {
         // .catch(err => {
         // console.log('caught it!',err);
         // })
-        this.deleteBlog
     }
 
-    deleteBlog(){
-        blogService.destroy(`${this.props.match.params.id}`)
-        .then((res)=> console.log('can delete'))
-        .catch(err => {
-            console.log('caught the delete!',err);
-        })
-    }
 
     render() {
+        if(this.state.isEditing){
             return(
                 <div>
-                    <BlogComponent config={this.state.blog} />
+                    edit blog
+                    < edit form comming/>
+                </div>
+            )
+        }
+            return(
+                <div>
+                    <BlogComponent onBtnClick={this.toggleEdit} config={this.state.blog} />
                 </div>
             )
     }

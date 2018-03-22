@@ -7,7 +7,7 @@ let router = Router();
 let blogs = new Table('blogs');
 
 router.get('/', (req, res) => {
-
+    console.log('got em');
     blogs.getAll()
         .then(blogs => {
             res.json(blogs);

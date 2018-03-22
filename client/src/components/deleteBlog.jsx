@@ -3,14 +3,26 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { render } from 'react-dom';
 import BlogComponent from './blog';
 import Blog from '../containers/blog';
-import Delete from '../containers/delete';
+
+import * as blogService from '../services/blogs';
 // import DeleteBlogList from '../components/deleteBlogList';
 
+
+
 function DeleteBlog(props) {
-    console.log(props)
+    function deleteHandler(e){
+    blogService.destroy(`${props.currentId}`)
+    .then((res)=> console.log('can delete'))
+    .catch(err => {
+        console.log(err);
+    })
+}
+    
       return(
-        <button  onClick={this.handleDelete.bind(this, props.config.id)}> Delete this blog</button> 
+        <button  onClick={ deleteHandler }> Delete this blog </button> 
     )  
     }
+
+ 
 
 export default DeleteBlog;

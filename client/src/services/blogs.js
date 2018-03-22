@@ -13,6 +13,7 @@ function insert(data) {
 }
 
 function update(id, data) {
+    console.log(data)
     return baseService.put(`/api/blogs/${id}`, data);
 }
 

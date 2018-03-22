@@ -11,7 +11,7 @@ class AllBlogs extends Component {
         this.state = {
             blogs: []
         }
-        // this.deleteBlog = this.deleteBlog.bind(this);
+      
     }
     
     componentDidMount() {
@@ -24,7 +24,7 @@ class AllBlogs extends Component {
         .catch(err => {
         console.log('caught it!',err);
         })
-       
+
     }
 
     render() {

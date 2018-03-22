@@ -6,8 +6,9 @@ import AllBlogs from './main';
 import Blog from './blog';
 import BlogComponent from '../components/blog';
 import InputBlog from '../containers/inputBlog';
-import Delete from './delete';
 import styles from '../styles/links.scss';
+import Update from '../components/updateBlog';
+import UpdateBlog from '../containers/update';
 
 import AuthButton from '../components/auth/authButton';
 import Login from '../components/auth/login';
@@ -37,9 +38,8 @@ class Navigation extends Component {
                         <Route path="/login" component={Login} />
                         <Route path="/logout" component={Logout} />
                         <Route path="/donate" component={Donate} />
-
+                        <Route exact path="/blogs/:id/update" component={Update} />
                         <Route exact path="/blogs" component={ AllBlogs } />
-                        <Route exact path="/blogs" component={ Delete } />
                         <Route path="/blogs/add" component={ InputBlog } />
                         <Route exact path="/blogs/:id" component={ Blog } />
                         {/* <PrivateRoute path="/blogs/add" component={ InputBlog }/> */}
