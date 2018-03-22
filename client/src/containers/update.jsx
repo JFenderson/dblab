@@ -2,7 +2,7 @@ import React, {Component, Fragment } from 'react';
 import { Navigation } from 'react-router';
 import { withRouter} from 'react-router-dom';
 import * as blogService from '../services/blogs';
-import Update from '../components/updateBlog';
+import UpdateBlogChange from '../components/updateBlog';
 import BlogComponent from '../components/blog';
 
 
@@ -12,28 +12,19 @@ class UpdateBlog extends Component {
         this.state = {
             title: '',
             content:''
-        }
-        this.onClick = this.onClick.bind(this);
+        };
+        
+        this.handleContentChange = this.handleContentChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
         this.goToRoute = this.goToRoute.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    componentDidMount(){
-        blogService.update(`${this.props.match.params.id}`,{
-            title: this.state.blog.title,
-            content: this.state.blog.content
-        })
-        .then((data) => {
-            console.log(data)
-        })
-        console.log(props)
+        this.onClick = this.onClick.bind(this);
     }
 
     handleSubmit(event) {
-        console.log(props.match.params.id)
         blogService.update(`${this.props.match.params.id}`,{
-            title: this.state.blog.title,
-            content: this.state.blog.content
+            title: this.state.title,
+            content: this.state.content
         })
         .then((data) => {
             console.log(data)
@@ -44,16 +35,16 @@ class UpdateBlog extends Component {
         this.props.history.push("/blogs");
       }
 
-    handleTitleChange(title){
+    handleContentChange(e){
         this.setState({
-            blog
-        })
+            content: e.target.value
+        });
     }
 
-    handleContentChange(content){
+    handleTitleChange(e){
         this.setState({
-            blog
-        })
+            title: e.target.value
+        });
     }
 
     onClick(event){
@@ -66,8 +57,12 @@ class UpdateBlog extends Component {
     render() {
         return (
             <div>
-                <Update update = {this.state.blog} />
-            </div>
+                <UpdateBlogChange 
+                    onTitleChange={this.handleTitleChange} 
+                    onContentChange={this.handleContentChange} 
+                    onUpdateSubmit={this.onClick} 
+                />
+        </div>
         );
     }
 }

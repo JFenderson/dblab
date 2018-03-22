@@ -8,13 +8,10 @@ import * as blogService from '../services/blogs';
 // blogList passes config to blogComponent
 
 function BlogList(props){
-    const list = props.config.map((blog)=>{
-        let truncatedContent = blog.content.substring(0, 250).trim() + '...';
-
-        const blogTruncated = Object.assign({}, blog, { content: truncatedContent })
+    const list = props.config.map((blog,index)=>{
         return(
             <div>
-                <BlogComponent key={blog.id} config={blog} />
+                <BlogComponent key={index} config={blog} />
             </div>
             
         );

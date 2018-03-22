@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import * as blogService from '../services/blogs';
 import Blog from '../containers/blog';
 import DeleteBlog from './deleteBlog';
-import Update from './updateBlog';
+import UpdateBlogChange from './updateBlog';
 import UpdateBlog from '../containers/update';
 
 //this component will pass the props up to blogList, which passes to the main page of blog
@@ -37,8 +37,8 @@ function BlogComponent(props) {
                 <p>{props.config.content}</p>
                 <Link style={linkStyle} to={`/blogs/${props.config.id}`}>Read Me</Link>
                 <Link style={linkStyle} to={`/blogs`}>Back</Link>
-                <Update updateId = {props.config} />
-                {/* <Link style={linkStyle} to={`/blogs/${props.config.id}/update`}>Edit</Link> */}
+                {/* <UpdateBlogChange updateId = {props.config} /> */}
+                <Link style={linkStyle} to={`/blogs/${props.config.id}/update`}> Edit</Link>
                 <DeleteBlog currentId = {props.config.id} />
 
             </div>

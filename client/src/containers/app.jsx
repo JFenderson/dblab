@@ -38,7 +38,7 @@ class Navigation extends Component {
                         <Route path="/login" component={Login} />
                         <Route path="/logout" component={Logout} />
                         <Route path="/donate" component={Donate} />
-                        <Route exact path="/blogs/:id/update" component={Update} />
+                        <Route exact path="/blogs/:id/update" component={UpdateBlog} />
                         <Route exact path="/blogs" component={ AllBlogs } />
                         <Route path="/blogs/add" component={ InputBlog } />
                         <Route exact path="/blogs/:id" component={ Blog } />
