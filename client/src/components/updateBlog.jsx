@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import BlogComponent from './blog';
 import * as blogService from '../services/blogs';
 import UpdateBlog from '../containers/update';
+import { Button } from 'react-bootstrap';
 
 
 
@@ -28,6 +29,7 @@ function UpdateBlogChange(props) {
                 <button className="blogBtn" 
                 onClick={props.onUpdateSubmit}
                 >Submit</button>
+                <button bsStyle="primary"><Link to={'/blogs'}>Cancel</Link></button>
             </div>
         </div>
         );

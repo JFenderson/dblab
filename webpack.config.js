@@ -15,6 +15,7 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
+                    sourceMap: true,
                     options: {
                         presets: ['env', 'react']
                     }

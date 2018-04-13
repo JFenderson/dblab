@@ -40,9 +40,9 @@ class Navigation extends Component {
                         <Route path="/donate" component={Donate} />
                         <Route exact path="/blogs/:id/update" component={UpdateBlog} />
                         <Route exact path="/blogs" component={ AllBlogs } />
-                        <Route path="/blogs/add" component={ InputBlog } />
+                        {/* <Route path="/blogs/add" component={ InputBlog } /> */}
                         <Route exact path="/blogs/:id" component={ Blog } />
-                        {/* <PrivateRoute path="/blogs/add" component={ InputBlog }/> */}
+                        <PrivateRoute path="/blogs/add" component={ InputBlog }/>
                     </Switch>
                 </Fragment>
             </Router>

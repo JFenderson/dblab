@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 app.use(express.static(CLIENT_PATH));
 app.use(express.json());
 
-// configurePassport(app);
+configurePassport(app);
 
 app.use('/api', routes);
 
