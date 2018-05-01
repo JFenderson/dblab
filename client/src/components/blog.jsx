@@ -42,7 +42,7 @@ function BlogComponent(props) {
                 <DeleteBlog currentId = {props.config.id} />
 
             </div>
-        ) ;
+        );
 }
 
 export default BlogComponent;
